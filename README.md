@@ -1,6 +1,8 @@
-# GSA — Governed Stewardship Architecture
+# GSA System Atlas — Governed Stewardship Architecture
 
-**A public architecture for agentic systems that can reason, investigate, and act without allowing a language model to become the authority over state, permissions, evidence, or reality.**
+**The public System Atlas for GSA: an architecture for agentic systems that can reason, investigate, and act without allowing a language model to become the authority over state, permissions, evidence, or reality.**
+
+This repository is the public **System Atlas** for GSA. It documents the architecture, contracts, workflows, governance boundaries, and representative examples behind the private implementation.
 
 GSA is the general architecture behind domain systems such as White Room and Volta. It is designed for long-running, tool-using AI systems where models may change, fail, disagree, or hallucinate while the surrounding system must remain trustworthy.
 
@@ -101,14 +103,29 @@ Authoritative state update
 
 ## Public applications
 
-- [White Room System](https://github.com/bretbouchard/white-room-system) — governed AI applied to a real-time creative/music system.
-- [Volta System](https://github.com/bretbouchard/volta-system) — governed AI applied to electronics design, validation, and manufacturing.
+- [White Room System Atlas](https://github.com/bretbouchard/white-room-system) — governed AI applied to a real-time creative/music system.
+- [Volta System Atlas](https://github.com/bretbouchard/volta-system) — governed AI applied to electronics design, validation, and manufacturing.
 
 These repositories show how the same architecture changes shape in very different domains while preserving the same state, evidence, tooling, and governance principles.
 
-## What this repository contains
+## What this System Atlas contains
 
-This is a public architectural repository. It documents concepts, contracts, workflows, and examples without exposing private implementation code, prompts, project state, credentials, or user-specific data.
+Public here:
+
+- architecture and contracts
+- governance boundaries
+- execution and decision flows
+- evidence and verification patterns
+- representative examples
+- domain-application notes
+
+Kept private:
+
+- production implementation code
+- private prompts and configuration
+- user/project state
+- credentials
+- unpublished application internals
 
 Start with:
 
@@ -126,4 +143,4 @@ Start with:
 
 ## Status
 
-GSA is under active development. The production implementation and application-specific state remain private; this repository is the public systems architecture and portfolio surface.
+GSA is under active development. The production implementation and application-specific state remain private; this repository is the public System Atlas and portfolio surface.
