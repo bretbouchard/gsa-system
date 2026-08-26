@@ -44,6 +44,10 @@ A model receives a controlled projection of authoritative state. It may investig
                             |
                             v
                          REALITY
+                            |
+                    observed outcomes
+                            |
+                            +---------------> Modeled World
 ```
 
 ## System roles
@@ -52,8 +56,8 @@ A model receives a controlled projection of authoritative state. It may investig
 - **GSD** — sequences work into explicit, dependency-aware, verifiable steps.
 - **Elenchus** — hunts unknowns, assumptions, missing evidence, and unresolved risk.
 - **Council** — domain professionals investigate decisions from distinct professional viewpoints and return evidence-backed findings.
-- **Historian** — preserves epistemic state, decisions, precedent, outcomes, and the evidence behind them.
-- **Obdurate** — governs what may actually happen, including permissions, approvals, irreversible actions, and external side effects.
+- **Historian** — preserves epistemic state, decisions, precedent, expected outcomes, observed consequences, and the evidence behind them.
+- **Obdurate** — governs what may actually happen, including permissions, approvals, irreversible actions, external side effects, and risk-based autonomy.
 - **Tools** — explicit capabilities through which models read state, perform bounded operations, verify claims, and request changes.
 
 ## Why this architecture exists
@@ -68,12 +72,31 @@ GSA separates those concerns so that:
 4. unknowns become explicit work rather than silent assumptions,
 5. multiple professional viewpoints can challenge a proposed decision,
 6. state remains inspectable and recoverable after failures,
-7. deterministic verification can override model confidence.
+7. deterministic verification can override model confidence,
+8. successful implementation is not confused with successful outcome,
+9. observed consequences can become governed evidence for future work.
+
+## Reality Feedback Loop
+
+GSA closes the loop between plans and reality:
+
+```text
+Observe → Evidence → Interpret → Investigate → Decide → Plan → Govern → Execute → Verify → Observe
+```
+
+Observations are evidence, not automatic truth or requirements. A signal may justify investigation, but it does not silently become a ticket or autonomous change.
+
+GSA also maintains two independent completion dimensions:
+
+- **Implementation:** `Not Started → Executing → Implemented → Verified`
+- **Outcome:** `Not Observed → Observing → Outcome Validated | Outcome Failed | Inconclusive`
+
+A change can pass every implementation test and still fail to produce the intended result. `Verified` therefore never means `Outcome Validated`.
 
 ## Execution pattern
 
 ```text
-Intent
+Intent or accepted finding
   |
   v
 Authoritative State
@@ -83,7 +106,7 @@ Authoritative State
   +--> Specialist investigation
   |
   v
-Plan / work graph
+Plan / work graph + expected outcome
   |
   v
 Tool contract
@@ -95,10 +118,17 @@ Policy / approval
 Domain operation
   |
   v
-Verification + evidence
+Implementation verification + evidence
   |
   v
 Authoritative state update
+  |
+  v
+Outcome observation
+  |
+  +--> validate outcome
+  +--> fail hypothesis / re-plan
+  +--> remain inconclusive
 ```
 
 ## Public applications
@@ -116,6 +146,7 @@ Public here:
 - governance boundaries
 - execution and decision flows
 - evidence and verification patterns
+- reality feedback and outcome-validation semantics
 - representative examples
 - domain-application notes
 
@@ -135,6 +166,7 @@ Start with:
 - [Execution Flow](architecture/EXECUTION_FLOW.md)
 - [GSD](workflow/GSD.md)
 - [Evidence](workflow/EVIDENCE.md)
+- [Reality Feedback Loop](workflow/REALITY_FEEDBACK_LOOP.md)
 - [Decision Lifecycle](workflow/DECISION_LIFECYCLE.md)
 - [Elenchus](intelligence/ELENCHUS.md)
 - [Council](intelligence/COUNCIL.md)
